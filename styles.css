@@ -1,0 +1,100 @@
+:root {
+    font-size: 62.5%;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+.header {
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    height: 20vh;
+    top: 0;
+}
+
+.logo {
+    padding: 1rem;
+}
+
+.nav {
+    max-height: 0;
+    transition: max-height .5s ease-out;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    overflow: hidden;
+}
+
+.menu a {
+    display: flex;
+    padding: 1.5rem;
+    color: #ffffff;
+    font-size: 2rem;
+    justify-content: right;
+    background-color: #212529;
+}
+
+.hamb {
+    cursor: pointer;
+    float: right;
+    padding: 3rem;
+}
+
+.hamb-line {
+    background: #333;
+    display: block;
+    height: 0.2rem;
+    position: relative;
+    width: 3rem;
+    margin: 1rem;
+
+}
+
+.hamb-line::before,
+.hamb-line::after {
+    background: #333;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+
+
+}
+
+.hamb-line::before {
+    top: 0.5rem;
+}
+
+.hamb-line::after {
+    top: -0.5rem;
+}
+
+.side-menu {
+    display: none;
+}
+
+.side-menu:checked~nav {
+    max-height: 100%;
+}
+
+.side-menu:checked~.hamb .hamb-line {
+    background: transparent;
+}
+
+.side-menu:checked~.hamb .hamb-line::before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+.side-menu:checked~.hamb .hamb-line::after {
+    transform: rotate(45deg);
+    top: 0;
+}
